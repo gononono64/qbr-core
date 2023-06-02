@@ -146,6 +146,7 @@ RegisterNetEvent('QBCore:Command:SpawnHorse', function(HorseName)
         if not IsModelValid(animalHash) then return end
         local endlessLoop = 50
         while not HasModelLoaded(animalHash) and endlessLoop > 0 do 
+            Citizen.InvokeNative(0xFA28FE3A6246FC30, animalHash) --requestmodel
             Wait(100) 
             endlessLoop = endlessLoop - 1
         end
